@@ -1,7 +1,7 @@
 package com.ads.healthcare.dto;
 
 import com.ads.healthcare.entities.Paciente;
-
+//teste
 public class PacienteDto {
     
     private int id;

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.ads.healthcare.dto.PacienteDto;
 import com.ads.healthcare.entities.Paciente;
 import com.ads.healthcare.repository.PacienteRepository;
-
+//teste
 @Service
 public class PacienteService {
     
