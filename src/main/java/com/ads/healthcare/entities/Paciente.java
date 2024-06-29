@@ -1,22 +1,106 @@
 package com.ads.healthcare.entities;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
+@Entity
 public class Paciente {
     
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
     private String cpf;
     private String genero;
 
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "paciente_agendamento")
+    public List<Agendamento> agendamentos;
 
-    //@OneToMany(mappedBy = "participante")
+    @JsonIgnore
+    @OneToMany(mappedBy = "paciente_prescricao")
+    public List<Prescricao> prescricaos;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "paciente_prontuario")
+    public List<Prontuario> prontuarios;
 
+    public Paciente(int id, String nome, String cpf, String genero, List<Agendamento> agendamentos,
+            List<Prescricao> prescricaos, List<Prontuario> prontuarios) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.genero = genero;
+        this.agendamentos = agendamentos;
+        this.prescricaos = prescricaos;
+        this.prontuarios = prontuarios;
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public List<Agendamento> getAgendamentos() {
+        return agendamentos;
+    }
+
+    public void setAgendamentos(List<Agendamento> agendamentos) {
+        this.agendamentos = agendamentos;
+    }
+
+    public List<Prescricao> getPrescricaos() {
+        return prescricaos;
+    }
+
+    public void setPrescricaos(List<Prescricao> prescricaos) {
+        this.prescricaos = prescricaos;
+    }
+
+    public List<Prontuario> getProntuarios() {
+        return prontuarios;
+    }
+
+    public void setProntuarios(List<Prontuario> prontuarios) {
+        this.prontuarios = prontuarios;
+    }
+
+    
 
     
 
