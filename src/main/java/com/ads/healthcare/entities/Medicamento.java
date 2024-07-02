@@ -1,10 +1,14 @@
 package com.ads.healthcare.entities;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Medicamento {
@@ -13,8 +17,12 @@ public class Medicamento {
 
     private int id;
     private String nome;
-    private String valor;
-    
+    private Double valor;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "medicamento_prescricao")
+    public List<Procedimento> procedimentos;
+
     public Medicamento() {
     }
 
@@ -34,13 +42,20 @@ public class Medicamento {
         this.nome = nome;
     }
 
-    public String getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 
-    
+    public List<Procedimento> getProcedimentos() {
+        return procedimentos;
+    }
+
+    public void setProcedimentos(List<Procedimento> procedimentos) {
+        this.procedimentos = procedimentos;
+    }
+
 }

@@ -1,7 +1,6 @@
 package com.ads.healthcare.services;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +15,7 @@ public class MaterialService {
 
     public List<Material> listar() {
         List<Material> materiais = repository.findAll();
-        return materiais.stream().map(x -> new Material()).collect(Collectors.toList());
+        return materiais;
 
     }
 
