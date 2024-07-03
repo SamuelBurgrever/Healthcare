@@ -31,7 +31,7 @@ public class PacienteService {
         return lista.stream().map(x -> new PacienteDto(x)).collect(Collectors.toList());
 
     }
-    
+
 
 
 }
