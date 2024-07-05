@@ -1,9 +1,14 @@
 package com.ads.healthcare.entities;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Medico {
@@ -15,8 +20,9 @@ public class Medico {
     private String crm;
     private String telefone;
 
-    public Medico() {
-    }
+    @JsonIgnore
+    @OneToMany(mappedBy = "medico_prontuario")
+    public List<Prontuario> prontuarios;
 
     public int getId() {
         return id;
@@ -49,5 +55,15 @@ public class Medico {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    public List<Prontuario> getProntuarios() {
+        return prontuarios;
+    }
+
+    public void setProntuarios(List<Prontuario> prontuarios) {
+        this.prontuarios = prontuarios;
+    }
+
+    
 
 }

@@ -1,5 +1,6 @@
 package com.ads.healthcare.dto;
 
+
 import com.ads.healthcare.entities.Medico;
 
 public class MedicoDto {
@@ -13,9 +14,6 @@ public class MedicoDto {
         this.nome = medico.getNome();
         this.crm = medico.getCrm();
         this.telefone = medico.getTelefone();
-    }
-
-    public MedicoDto() {
     }
 
     public int getId() {
@@ -50,4 +48,7 @@ public class MedicoDto {
         this.telefone = telefone;
     }
 
+    
+
+   
 }

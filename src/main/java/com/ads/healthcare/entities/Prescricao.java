@@ -24,17 +24,17 @@ public class Prescricao {
     private Paciente paciente_prescricao;
 
     @ManyToOne(cascade = CascadeType.REFRESH)
-    private Medicamento medicamento;
+    private Medicamento medicamento_prescricao;
 
     @JsonIgnore
     @OneToMany(mappedBy = "prescricao_faturamento")
     public List<Faturamento> faturamentos;
 
-    public Prescricao(Integer id, Paciente paciente_prescricao, Medicamento medicamento,
+    public Prescricao(Integer id, Paciente paciente_prescricao, Medicamento medicamento_prescricao,
             List<Faturamento> faturamentos) {
         this.id = id;
         this.paciente_prescricao = paciente_prescricao;
-        this.medicamento = medicamento;
+        this.medicamento_prescricao = medicamento_prescricao;
         this.faturamentos = faturamentos;
     }
 
@@ -55,11 +55,11 @@ public class Prescricao {
     }
 
     public Medicamento getMedicamento() {
-        return medicamento;
+        return medicamento_prescricao;
     }
 
-    public void setMedicamento(Medicamento medicamento) {
-        this.medicamento = medicamento;
+    public void setMedicamento(Medicamento medicamento_prescricao) {
+        this.medicamento_prescricao = medicamento_prescricao;
     }
 
     public List<Faturamento> getFaturamentos() {
