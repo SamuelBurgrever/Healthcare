@@ -21,14 +21,23 @@ public class Material {
 
     @JsonIgnore
     @OneToMany(mappedBy = "material_faturamento")
-    public List<Material> materiais;
+    public List<Faturamento> faturamentos;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "procedimento_faturamento")
-    public List<Procedimento> procedimentos;
+    
 
     public Material() {
     }
+
+    
+
+    public Material(int id, String nome, Double valorTotal, List<Faturamento> faturamentos) {
+        this.id = id;
+        this.nome = nome;
+        this.valorTotal = valorTotal;
+        this.faturamentos = faturamentos;
+    }
+
+
 
     public int getId() {
         return id;
@@ -54,20 +63,12 @@ public class Material {
         this.valorTotal = valorTotal;
     }
 
-    public List<Material> getMateriais() {
-        return materiais;
+    public List<Faturamento> getFaturamentos() {
+        return faturamentos;
     }
 
-    public void setMateriais(List<Material> materiais) {
-        this.materiais = materiais;
-    }
-
-    public List<Procedimento> getProcedimentos() {
-        return procedimentos;
-    }
-
-    public void setProcedimentos(List<Procedimento> procedimentos) {
-        this.procedimentos = procedimentos;
+    public void setFaturamentos(List<Faturamento> faturamentos) {
+        this.faturamentos = faturamentos;
     }
 
 }

@@ -21,10 +21,23 @@ public class Procedimento {
 
     @JsonIgnore
     @OneToMany(mappedBy = "procedimento_faturamento")
-    public List<Procedimento> procedimentos;
+    public List<Faturamento> faturamentos;
+
+    
 
     public Procedimento() {
     }
+
+    
+
+    public Procedimento(int id, String nome, Double valor, List<Faturamento> faturamentos) {
+        this.id = id;
+        this.nome = nome;
+        this.valor = valor;
+        this.faturamentos = faturamentos;
+    }
+
+
 
     public int getId() {
         return id;
@@ -50,12 +63,14 @@ public class Procedimento {
         this.valor = valor;
     }
 
-    public List<Procedimento> getProcedimentos() {
-        return procedimentos;
+    public List<Faturamento> getFaturamentos() {
+        return faturamentos;
     }
 
-    public void setProcedimentos(List<Procedimento> procedimentos) {
-        this.procedimentos = procedimentos;
+    public void setFaturamentos(List<Faturamento> faturamentos) {
+        this.faturamentos = faturamentos;
     }
+
+    
 
 }

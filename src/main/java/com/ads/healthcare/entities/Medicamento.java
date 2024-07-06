@@ -21,10 +21,21 @@ public class Medicamento {
 
     @JsonIgnore
     @OneToMany(mappedBy = "medicamento_prescricao")
-    public List<Procedimento> procedimentos;
+    public List<Prescricao> prescriocoes;
 
     public Medicamento() {
     }
+
+    
+
+    public Medicamento(int id, String nome, Double valor) {
+        this.id = id;
+        this.nome = nome;
+        this.valor = valor;
+        
+    }
+
+
 
     public int getId() {
         return id;
@@ -50,12 +61,8 @@ public class Medicamento {
         this.valor = valor;
     }
 
-    public List<Procedimento> getProcedimentos() {
-        return procedimentos;
-    }
+    
 
-    public void setProcedimentos(List<Procedimento> procedimentos) {
-        this.procedimentos = procedimentos;
-    }
+    
 
 }

@@ -24,6 +24,23 @@ public class Medico {
     @OneToMany(mappedBy = "medico_prontuario")
     public List<Prontuario> prontuarios;
 
+    
+
+    public Medico() {
+    }
+
+    
+
+    public Medico(int id, String nome, String crm, String telefone, List<Prontuario> prontuarios) {
+        this.id = id;
+        this.nome = nome;
+        this.crm = crm;
+        this.telefone = telefone;
+        this.prontuarios = prontuarios;
+    }
+
+
+
     public int getId() {
         return id;
     }

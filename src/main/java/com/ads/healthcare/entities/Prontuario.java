@@ -21,19 +21,24 @@ public class Prontuario {
     private String convenio;
 
     @ManyToOne(cascade = CascadeType.REFRESH)
-    private Paciente paciente_prontiario;
+    private Paciente paciente_prontuario;
 
     @ManyToOne(cascade = CascadeType.REFRESH)
     private Medico medico_prontuario;
 
+    
+
+    public Prontuario() {
+    }
+
     public Prontuario(int id, String registro, Date dataEntrada, Date dataAlta, String convenio,
-            Paciente paciente_prontiario, Medico medico_prontuario) {
+            Paciente paciente_prontuario, Medico medico_prontuario) {
         this.id = id;
         this.registro = registro;
         this.dataEntrada = dataEntrada;
         this.dataAlta = dataAlta;
         this.convenio = convenio;
-        this.paciente_prontiario = paciente_prontiario;
+        this.paciente_prontuario = paciente_prontuario;
         this.medico_prontuario = medico_prontuario;
     }
 
@@ -78,11 +83,11 @@ public class Prontuario {
     }
 
     public Paciente getPaciente_prontiario() {
-        return paciente_prontiario;
+        return paciente_prontuario;
     }
 
-    public void setPaciente_prontiario(Paciente paciente_prontiario) {
-        this.paciente_prontiario = paciente_prontiario;
+    public void setPaciente_prontiario(Paciente paciente_prontuario) {
+        this.paciente_prontuario = paciente_prontuario;
     }
 
     public Medico getMedico_prontuario() {

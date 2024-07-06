@@ -18,13 +18,18 @@ public class Agendamento {
     private Date data;
 
     @ManyToOne(cascade = CascadeType.REFRESH)
-    private Paciente paciente_prescricao;
+    private Paciente paciente_agendamento;
 
-    public Agendamento(int id, Date data, Paciente paciente_prescricao) {
+    public Agendamento(int id, Date data, Paciente paciente_agendamento) {
         this.id = id;
         this.data = data;
-        this.paciente_prescricao = paciente_prescricao;
+        this.paciente_agendamento = paciente_agendamento;
     }
+
+    
+    public Agendamento() {
+    }
+
 
     public int getId() {
         return id;
@@ -42,12 +47,12 @@ public class Agendamento {
         this.data = data;
     }
 
-    public Paciente getPaciente_prescricao() {
-        return paciente_prescricao;
+    public Paciente getPaciente_agendamento() {
+        return paciente_agendamento;
     }
 
-    public void setPaciente_prescricao(Paciente paciente_prescricao) {
-        this.paciente_prescricao = paciente_prescricao;
+    public void setPaciente_agendamento(Paciente paciente_agendamento) {
+        this.paciente_agendamento = paciente_agendamento;
     }
 
 

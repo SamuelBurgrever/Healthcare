@@ -30,13 +30,20 @@ public class Prescricao {
     @OneToMany(mappedBy = "prescricao_faturamento")
     public List<Faturamento> faturamentos;
 
-    public Prescricao(Integer id, Paciente paciente_prescricao, Medicamento medicamento_prescricao,
-            List<Faturamento> faturamentos) {
+    
+
+    public Prescricao() {
+    }
+
+   
+
+    public Prescricao(Integer id, Paciente paciente_prescricao, Medicamento medicamento_prescricao) {
         this.id = id;
         this.paciente_prescricao = paciente_prescricao;
         this.medicamento_prescricao = medicamento_prescricao;
-        this.faturamentos = faturamentos;
     }
+
+
 
     public Integer getId() {
         return id;
@@ -58,16 +65,8 @@ public class Prescricao {
         return medicamento_prescricao;
     }
 
-    public void setMedicamento(Medicamento medicamento_prescricao) {
+    public void setMedicamento_prescricao(Medicamento medicamento_prescricao) {
         this.medicamento_prescricao = medicamento_prescricao;
-    }
-
-    public List<Faturamento> getFaturamentos() {
-        return faturamentos;
-    }
-
-    public void setFaturamentos(List<Faturamento> faturamentos) {
-        this.faturamentos = faturamentos;
     }
 
     

@@ -31,18 +31,27 @@ public class Paciente {
 
     @JsonIgnore
     @OneToMany(mappedBy = "paciente_prontuario")
-    public List<Prontuario> prontuarios;
+    public List<Prontuario> prontuarios_paciente;
+
+    
+
+    public Paciente() {
+    }
+
+    
 
     public Paciente(int id, String nome, String cpf, String genero, List<Agendamento> agendamentos,
-            List<Prescricao> prescricaos, List<Prontuario> prontuarios) {
+            List<Prescricao> prescricaos, List<Prontuario> prontuarios_paciente) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.genero = genero;
         this.agendamentos = agendamentos;
         this.prescricaos = prescricaos;
-        this.prontuarios = prontuarios;
+        this.prontuarios_paciente = prontuarios_paciente;
     }
+
+
 
     public int getId() {
         return id;
@@ -76,30 +85,7 @@ public class Paciente {
         this.genero = genero;
     }
 
-    public List<Agendamento> getAgendamentos() {
-        return agendamentos;
-    }
-
-    public void setAgendamentos(List<Agendamento> agendamentos) {
-        this.agendamentos = agendamentos;
-    }
-
-    public List<Prescricao> getPrescricaos() {
-        return prescricaos;
-    }
-
-    public void setPrescricaos(List<Prescricao> prescricaos) {
-        this.prescricaos = prescricaos;
-    }
-
-    public List<Prontuario> getProntuarios() {
-        return prontuarios;
-    }
-
-    public void setProntuarios(List<Prontuario> prontuarios) {
-        this.prontuarios = prontuarios;
-    }
-
+  
     
 
     

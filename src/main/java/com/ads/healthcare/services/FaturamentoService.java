@@ -1,10 +1,12 @@
 package com.ads.healthcare.services;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ads.healthcare.dto.FaturamentoDto;
 import com.ads.healthcare.entities.Faturamento;
 import com.ads.healthcare.repository.FaturamentoRepository;
 
@@ -14,9 +16,9 @@ public class FaturamentoService {
     FaturamentoRepository repository;
 
 
-    public List<Faturamento> listar() {
-        List<Faturamento> faturamentos = repository.findAll();
-        return faturamentos;
+    public List<FaturamentoDto> listar() {
+        List<Faturamento> lista = repository.findAll();
+        return lista.stream().map(x -> new FaturamentoDto(x)).collect(Collectors.toList());
 
     }
 

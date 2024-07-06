@@ -27,6 +27,19 @@ public class Faturamento {
     public Faturamento() {
     }
 
+    
+
+    public Faturamento(int id, Double valorTotal, Material material_faturamento, Procedimento procedimento_faturamento,
+            Prescricao prescricao_faturamento) {
+        this.id = id;
+        this.valorTotal = valorTotal;
+        this.material_faturamento = material_faturamento;
+        this.procedimento_faturamento = procedimento_faturamento;
+        this.prescricao_faturamento = prescricao_faturamento;
+    }
+
+
+
     public int getId() {
         return id;
     }
@@ -40,7 +53,8 @@ public class Faturamento {
     }
 
     public void setValorTotal(Double valorTotal) {
-        this.valorTotal = valorTotal;
+        Double soma = (valorTotal - valorTotal) + material_faturamento.getValorTotal() + procedimento_faturamento.getValor() + prescricao_faturamento.getMedicamento().getValor();
+        this.valorTotal = soma;
     }
 
     public Material getMaterial_faturamento() {
